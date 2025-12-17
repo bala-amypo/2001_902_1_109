@@ -3,4 +3,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 @Repository
-p
+public interface StudentRepo extends JpaRepository<StudentEntity,Integer>{
+    
+}
