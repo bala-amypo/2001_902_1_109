@@ -63,6 +63,14 @@ public class CreditCardRecord{
         this.createdAt=createdAt;
     }
 
-    public CreditCardRecord(Long id,String userId,String fullName,String email,)
+    public CreditCardRecord(Long id,String userId,String fullName,String email,String password,String role,Boolean active,LocakDateTime createdAt){
+        this.id=id;
+        this.fullName=fullName;
+        this.email=email;
+        this.password=password;
+        this.role=role;
+        this.
+
+    }
     
 }
