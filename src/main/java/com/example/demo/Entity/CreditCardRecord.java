@@ -6,12 +6,12 @@ public class CreditCardRecord{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String userId;
+    private Long userId;
     private String cardName;
     private String issuer;
     private String cardType;
-    private String annualFee;
-    private Boolean status;
+    private Double annualFee;
+    private String status;
     private LocalDateTime createdAt;
 
     public Long getId(){
@@ -20,10 +20,10 @@ public class CreditCardRecord{
     public void setId(Long id){
         this.id=id;
     }
-    public String getUserId(){
+    public Long getUserId(){
         return userId;
     }
-    public void setUserId(String userId){
+    public void setUserId(Long userId){
         this.userId=userId;
     }
     public String getCardName(){
@@ -47,14 +47,14 @@ public class CreditCardRecord{
     public String getAnnualFee(){
         return annualFee;
     }
-    public void setRole(String role){
-        this.role=role;
+    public void setAnnualFee(Double annualFee){
+        this.annualFee=annualFee;
     }
-    public Boolean getActive(){
-        return active;
+    public Boolean getStatus(){
+        return status;
     }
-    public void setActive(Boolean active){
-        this.active=active;
+    public void setStatus(String status){
+        this.status=status;
     }
     public LocalDateTime getCreatedAt(){
         return createdAt;
