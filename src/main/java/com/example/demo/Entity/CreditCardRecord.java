@@ -47,10 +47,10 @@ public class CreditCardRecord{
     public String getAnnualFee(){
         return annualFee;
     }
-    public void setAnnualFee(Double annualFee){
+    public void setAnnualFee(String annualFee){
         this.annualFee=annualFee;
     }
-    public Boolean getStatus(){
+    public String getStatus(){
         return status;
     }
     public void setStatus(String status){
@@ -63,7 +63,7 @@ public class CreditCardRecord{
         this.createdAt=createdAt;
     }
 
-    public CreditCardRecord(Long id,String userId,String fullName,String email,String password,String role,Boolean active,LocakDateTime createdAt){
+    public CreditCardRecord(Long id,Long userId,String CardName,String issuer,String cardType,Double annualFee,String status,LocakDateTime createdAt){
         this.id=id;
         this.fullName=fullName;
         this.email=email;
