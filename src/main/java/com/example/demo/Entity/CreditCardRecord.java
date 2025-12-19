@@ -41,6 +41,24 @@ public class CreditCardRecord{
     public String getPassword(){
         return password;
     }
-    public void 
+    public void setPassword(String password){
+        this.password=password;
+    }
+    public String getRole(){
+        return role;
+    }
+    public void setRole(String role){
+        this.role=role;
+    }
+    public Boolean getActive(){
+        return active
+    }
+    public void setActive(Boolean active){
+        this.active=active;
+    }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+    
     
 }
