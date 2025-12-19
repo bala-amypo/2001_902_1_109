@@ -51,7 +51,7 @@ public class CreditCardRecord{
         this.role=role;
     }
     public Boolean getActive(){
-        return active
+        return active;
     }
     public void setActive(Boolean active){
         this.active=active;
@@ -59,6 +59,8 @@ public class CreditCardRecord{
     public LocalDateTime getCreatedAt(){
         return createdAt;
     }
-    
+    public void setCreateAt(LocalDateTime createdAt){
+        this.createdAt=createdAt;
+    }
     
 }
