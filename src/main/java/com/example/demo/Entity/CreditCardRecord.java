@@ -9,5 +9,19 @@ public class CreditCardRecord{
     private String userId;
     private String fullName;
     private String email;
+    private String password;
+    private String role;
+    private Boolean active;
+    private LocalDateTime createdAt;
+
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id=id;
+    }
+    public String getUserId(){
+        return userId;
+    }
     
 }
