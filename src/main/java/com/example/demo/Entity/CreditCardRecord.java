@@ -7,11 +7,11 @@ public class CreditCardRecord{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String userId;
-    private String fullName;
-    private String email;
-    private String password;
-    private String role;
-    private Boolean active;
+    private String cardName;
+    private String issuer;
+    private String cardType;
+    private String annualFee;
+    private Boolean status;
     private LocalDateTime createdAt;
 
     public Long getId(){
@@ -26,11 +26,11 @@ public class CreditCardRecord{
     public void setUserId(String userId){
         this.userId=userId;
     }
-    public String getFullName(){
-        return fullName;
+    public String getCardName(){
+        return cardName;
     }
-    public void setFullName(String fullName){
-        this.fullName=fullName;
+    public void setCardName(String cardName){
+        this.cardName=cardName;
     }
     public String getEmail(){
         return email;
@@ -73,7 +73,7 @@ public class CreditCardRecord{
         this.createdAt=createdAt;
     }
     public CreditCardRecord(){
-        
+
     }
     
 }
