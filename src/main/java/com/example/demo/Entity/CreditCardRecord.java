@@ -62,5 +62,7 @@ public class CreditCardRecord{
     public void setCreateAt(LocalDateTime createdAt){
         this.createdAt=createdAt;
     }
+
+    public CreditCardRecord(Long id,String userId,String fullName,String email,)
     
 }
