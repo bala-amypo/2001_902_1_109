@@ -1,37 +1,18 @@
 package com.example.demo.entity;
-
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 public class RecommendationRecord {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Long userId;
     private Long purchaseIntentId;
     private Long recommendedCardId;
     private Double expectedRewardValue;
     private String calculationDetailsJson;
     private LocalDateTime recommendedAt;
-
-    public RecommendationRecord() {
-    }
-
-    public RecommendationRecord(Long id, Long userId, Long purchaseIntentId,
-                                Long recommendedCardId, Double expectedRewardValue,
-                                String calculationDetailsJson,
-                                LocalDateTime recommendedAt) {
-        this.id = id;
-        this.userId = userId;
-        this.purchaseIntentId = purchaseIntentId;
-        this.recommendedCardId = recommendedCardId;
-        this.expectedRewardValue = expectedRewardValue;
-        this.calculationDetailsJson = calculationDetailsJson;
-        this.recommendedAt = recommendedAt;
-    }
 
     @PrePersist
     public void prePersist() {
@@ -93,4 +74,21 @@ public class RecommendationRecord {
     public void setRecommendedAt(LocalDateTime recommendedAt) {
         this.recommendedAt = recommendedAt;
     }
+    
+    public RecommendationRecord() {
+    }
+
+    public RecommendationRecord(Long id, Long userId, Long purchaseIntentId,
+                                Long recommendedCardId, Double expectedRewardValue,
+                                String calculationDetailsJson,
+                                LocalDateTime recommendedAt) {
+        this.id = id;
+        this.userId = userId;
+        this.purchaseIntentId = purchaseIntentId;
+        this.recommendedCardId = recommendedCardId;
+        this.expectedRewardValue = expectedRewardValue;
+        this.calculationDetailsJson = calculationDetailsJson;
+        this.recommendedAt = recommendedAt;
+    }
+
 }
