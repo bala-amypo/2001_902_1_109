@@ -7,6 +7,7 @@ public class CreditCardRecord{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String userId;
-    
+    private String fullName;
+    private String email;
     
 }
