@@ -69,8 +69,11 @@ public class CreditCardRecord{
         this.email=email;
         this.password=password;
         this.role=role;
-        this.
-
+        this.active=active;
+        this.createdAt=createdAt;
+    }
+    public CreditCardRecord(){
+        
     }
     
 }
