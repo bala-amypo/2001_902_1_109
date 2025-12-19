@@ -32,20 +32,20 @@ public class CreditCardRecord{
     public void setCardName(String cardName){
         this.cardName=cardName;
     }
-    public String getEmail(){
-        return email;
+    public String getIssuer(){
+        return issuer;
     }
-    public void setEmail(String email){
-        this.email=email;
+    public void setIssuer(String issuer){
+        this.issuer=issuer;
     }
-    public String getPassword(){
-        return password;
+    public String getCardType(){
+        return cardType;
     }
-    public void setPassword(String password){
-        this.password=password;
+    public void setCardType(String cardType){
+        this.cardType=cardType;
     }
-    public String getRole(){
-        return role;
+    public String getAnnualFee(){
+        return annualFee;
     }
     public void setRole(String role){
         this.role=role;
