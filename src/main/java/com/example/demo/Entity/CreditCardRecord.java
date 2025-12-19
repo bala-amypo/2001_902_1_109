@@ -68,8 +68,9 @@ public class CreditCardRecord{
         this.userId=userId;
         this.cardName=cardName;
         this.issuer=issuer;
-        this.role=cardType;
-        this.active=active;
+        this.cardType=cardType;
+        this.annualFee=annualFee;
+        this.status=status;
         this.createdAt=createdAt;
     }
     public CreditCardRecord(){
