@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class RecommendationRecord {
+public class RecommendationRecord{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,43 +15,43 @@ public class RecommendationRecord {
     private LocalDateTime recommendedAt;
 
     @PrePersist
-    public void prePersist() {
+    public void prePersist(){
         this.recommendedAt = LocalDateTime.now();
     }
 
-    public Long getId() {
+    public Long getId(){
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id){
         this.id = id;
     }
 
-    public Long getUserId() {
+    public Long getUserId(){
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Long userId){
         this.userId = userId;
     }
 
-    public Long getPurchaseIntentId() {
+    public Long getPurchaseIntentId(){
         return purchaseIntentId;
     }
 
-    public void setPurchaseIntentId(Long purchaseIntentId) {
+    public void setPurchaseIntentId(Long purchaseIntentId){
         this.purchaseIntentId = purchaseIntentId;
     }
 
-    public Long getRecommendedCardId() {
+    public Long getRecommendedCardId(){
         return recommendedCardId;
     }
 
-    public void setRecommendedCardId(Long recommendedCardId) {
+    public void setRecommendedCardId(Long recommendedCardId){
         this.recommendedCardId = recommendedCardId;
     }
 
-    public Double getExpectedRewardValue() {
+    public Double getExpectedRewardValue(){
         return expectedRewardValue;
     }
 
@@ -59,7 +59,7 @@ public class RecommendationRecord {
         this.expectedRewardValue = expectedRewardValue;
     }
 
-    public String getCalculationDetailsJson() {
+    public String getCalculationDetailsJson(){
         return calculationDetailsJson;
     }
 
@@ -67,21 +67,15 @@ public class RecommendationRecord {
         this.calculationDetailsJson = calculationDetailsJson;
     }
 
-    public LocalDateTime getRecommendedAt() {
+    public LocalDateTime getRecommendedAt(){
         return recommendedAt;
     }
 
-    public void setRecommendedAt(LocalDateTime recommendedAt) {
+    public void setRecommendedAt(LocalDateTime recommendedAt){
         this.recommendedAt = recommendedAt;
     }
-    
-    public RecommendationRecord() {
-    }
 
-    public RecommendationRecord(Long id, Long userId, Long purchaseIntentId,
-                                Long recommendedCardId, Double expectedRewardValue,
-                                String calculationDetailsJson,
-                                LocalDateTime recommendedAt) {
+    public RecommendationRecord(Long id, Long userId, Long purchaseIntentId,Long recommendedCardId, Double expectedRewardValue,String calculationDetailsJson,LocalDateTime recommendedAt){
         this.id = id;
         this.userId = userId;
         this.purchaseIntentId = purchaseIntentId;
@@ -89,6 +83,8 @@ public class RecommendationRecord {
         this.expectedRewardValue = expectedRewardValue;
         this.calculationDetailsJson = calculationDetailsJson;
         this.recommendedAt = recommendedAt;
-    }
+    }   
+    public RecommendationRecord(){
 
+    }
 }
