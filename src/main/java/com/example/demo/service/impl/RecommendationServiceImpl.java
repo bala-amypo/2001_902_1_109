@@ -1,12 +1,20 @@
-package com.example.demo.repository;
+package com.example.demo.service.impl;
 
-import com.example.demo.entity.CreditCardRecord;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.service.RecommendationService;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public interface CreditCardRepository
-        extends JpaRepository<CreditCardRecord, Long> {
+@Service
+public class RecommendationServiceImpl implements RecommendationService {
 
-    List<CreditCardRecord> findByUserId(Long userId);
+    @Override
+    public List<String> generateRecommendation(Long userId) {
+        // Dummy logic (replace later)
+        List<String> recommendations = new ArrayList<>();
+        recommendations.add("Platinum Credit Card");
+        recommendations.add("Cashback Credit Card");
+        return recommendations;
+    }
 }

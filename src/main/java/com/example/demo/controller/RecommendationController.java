@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/recommendations")
+@RequestMapping("/recommendation")
 public class RecommendationController {
 
     private final RecommendationService service;
@@ -16,13 +16,13 @@ public class RecommendationController {
         this.service = service;
     }
 
-    @PostMapping("/{intentId}")
-    public RecommendationRecord generateRecommendation(@PathVariable Long intentId) {
-        return service.generateRecommendation(intentId);
-    }
-
-    @GetMapping("/user/{userId}")
-    public List<RecommendationRecord> getRecommendationsByUser(@PathVariable Long userId) {
-        return service.getRecommendationsByUser(userId);
+    @GetMapping("/{userId}")
+    public List<String> getRecommendation(@PathVariable Long userId) {
+        return service.generateRecommendation(userId);
     }
 }
+
+
+
+
+
