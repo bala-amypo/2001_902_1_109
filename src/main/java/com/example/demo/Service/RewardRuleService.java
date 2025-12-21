@@ -1,4 +1,10 @@
 package com.example.demo.Service;
-public class RewardRuleService{
-    
+
+import com.example.demo.Entity.RewardRule;
+
+import java.util.List;
+
+public interface RewardRuleService {
+    RewardRule createRule(RewardRule rule);
+    List<RewardRule> getAllRules();
 }
