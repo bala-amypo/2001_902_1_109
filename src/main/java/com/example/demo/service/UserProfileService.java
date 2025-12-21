@@ -1,13 +1,29 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.UserProfile;
+import com.example.demo.repository.UserProfileRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-public interface UserProfileService {
+@Service
+public class UserProfileService {
 
-    UserProfile createUser(UserProfile userProfile);
+    private final UserProfileRepository repository;
 
-    List<UserProfile> getAllUsers();
+    public UserProfileService(UserProfileRepository repository) {
+        this.repository = repository;
+    }
 
-    UserProfile getUserById(Long id);   
+    public UserProfile createUser(UserProfile user) {
+        return repository.save(user);
+    }
+
+    public List<UserProfile> getAllUsers() {
+        return repository.findAll();
+    }
+
+    public UserProfile getUserById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
 }
