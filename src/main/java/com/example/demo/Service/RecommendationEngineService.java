@@ -3,7 +3,7 @@ package com.example.demo.Service;
 import com.example.demo.entity.RecommendationRecord;
 import java.util.List;
 
-public interface RecommendationService {
+public interface RecommendationEngineService {
 
     RecommendationRecord saveRecommendation(RecommendationRecord recommendation);
 

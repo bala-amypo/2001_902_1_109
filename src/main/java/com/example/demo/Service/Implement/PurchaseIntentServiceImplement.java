@@ -1,4 +1,4 @@
-package com.example.demo.Service.Implement;
+package com.example.demo.Service.implement;
 
 import com.example.demo.Entity.PurchaseIntentRecord;
 import com.example.demo.Repository.PurchaseIntentRecordRepository;
