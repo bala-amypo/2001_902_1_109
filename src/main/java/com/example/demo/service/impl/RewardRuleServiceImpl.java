@@ -1,19 +1,18 @@
-package com.example.demo.service.implement;
+package com.example.demo.service.impl;
 
-import com.example.demo.Entity.RewardRule;
-import com.example.demo.Repository.RewardRuleRepository;
-import com.example.demo.Service.RewardRuleService;
+import com.example.demo.entity.RewardRule;
+import com.example.demo.repository.RewardRuleRepository;
+import com.example.demo.service.RewardRuleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RewardRuleServiceImplement implements RewardRuleService {
+public class RewardRuleServiceImpl implements RewardRuleService {
 
     private final RewardRuleRepository repository;
 
-    
-    public RewardRuleServiceImplement(RewardRuleRepository repository) {
+    public RewardRuleServiceImpl(RewardRuleRepository repository) {
         this.repository = repository;
     }
 
