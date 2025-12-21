@@ -1,25 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.PurchaseIntentRecord;
-import com.example.demo.repository.PurchaseIntentRecordRepository;
-import org.springframework.stereotype.Service;
+public interface PurchaseIntentService {
 
-import java.util.List;
+    void saveIntent(Long userId, String category);
 
-@Service
-public class PurchaseIntentService {
-
-    private final PurchaseIntentRecordRepository repository;
-
-    public PurchaseIntentService(PurchaseIntentRecordRepository repository) {
-        this.repository = repository;
-    }
-
-    public PurchaseIntentRecord createIntent(PurchaseIntentRecord intent) {
-        return repository.save(intent);
-    }
-
-    public List<PurchaseIntentRecord> getIntentsByUser(Long userId) {
-        return repository.findByUserId(userId);
-    }
+    String getTopIntent(Long userId);
 }

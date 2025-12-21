@@ -18,8 +18,11 @@ public class CreditCardServiceImpl implements CreditCardService {
 
     @Override
     public CreditCardRecord addCard(CreditCardRecord card) {
-    return repository.save(card);
+        return repository.save(card);
+    }
+
+    @Override
+    public List<CreditCardRecord> getCardsByUser(Long userId) {
+        return repository.findByUserId(userId);
     }
 }
-
-
