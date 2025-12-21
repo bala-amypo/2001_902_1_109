@@ -31,4 +31,3 @@ public class UserProfileController {
         return service.getUserById(id);
     }
 }
-

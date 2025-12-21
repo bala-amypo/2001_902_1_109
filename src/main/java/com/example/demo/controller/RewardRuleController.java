@@ -26,4 +26,3 @@ public class RewardRuleController {
         return service.getAllRules();
     }
 }
-
