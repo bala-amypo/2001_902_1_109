@@ -8,20 +8,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RecommendationEngineServiceImplement
-        implements RecommendationEngineService {
+public class RecommendationEngineServiceImplement implements RecommendationEngineService {
 
     private final RecommendationRepository repository;
 
-    // ✅ THIS LINE MUST BE EXACT
-    public RecommendationEngineServiceImplement(
-            RecommendationRepository repository) {
+    // ✅ Constructor name EXACTLY matches class name
+    public RecommendationEngineServiceImplement(RecommendationRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public RecommendationRecord saveRecommendation(
-            RecommendationRecord recommendation) {
+    public RecommendationRecord saveRecommendation(RecommendationRecord recommendation) {
         return repository.save(recommendation);
     }
 
