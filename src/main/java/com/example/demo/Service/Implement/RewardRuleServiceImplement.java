@@ -1,4 +1,4 @@
-package com.example.demo.Service.Implement;
+package com.example.demo.service.implement;
 
 import com.example.demo.Entity.RewardRule;
 import com.example.demo.Repository.RewardRuleRepository;
