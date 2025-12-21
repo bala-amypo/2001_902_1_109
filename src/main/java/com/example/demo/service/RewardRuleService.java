@@ -1,6 +1,11 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.RewardRule;
+import java.util.List;
+
 public interface RewardRuleService {
 
-    int calculateReward(String category);
+    RewardRule createRule(RewardRule rule);
+
+    List<RewardRule> getAllRules();
 }

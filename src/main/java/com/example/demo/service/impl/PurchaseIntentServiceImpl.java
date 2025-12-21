@@ -1,18 +1,22 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.entity.PurchaseIntentRecord;
 import com.example.demo.service.PurchaseIntentService;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PurchaseIntentServiceImpl implements PurchaseIntentService {
 
     @Override
-    public void saveIntent(Long userId, String category) {
-        // dummy logic
+    public PurchaseIntentRecord createIntent(PurchaseIntentRecord intent) {
+        return intent; // dummy logic
     }
 
     @Override
-    public String getTopIntent(Long userId) {
-        return "TRAVEL";
+    public List<PurchaseIntentRecord> getIntentsByUser(Long userId) {
+        return new ArrayList<>();
     }
 }
