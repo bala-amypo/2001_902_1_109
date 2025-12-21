@@ -12,7 +12,6 @@ public class RecommendationEngineServiceImplement implements RecommendationEngin
 
     private final RecommendationRepository repository;
 
-    
     public RecommendationEngineServiceImplement(RecommendationRepository repository) {
         this.repository = repository;
     }
