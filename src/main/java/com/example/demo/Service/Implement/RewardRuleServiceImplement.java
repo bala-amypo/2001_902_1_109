@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RewardRuleServiceImpl implements RewardRuleService {
+public class RewardRuleServiceImplement implements RewardRuleService {
 
     private final RewardRuleRepository repository;
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PurchaseIntentServiceImpl implements PurchaseIntentService {
+public class PurchaseIntentServiceImplement implements PurchaseIntentService {
 
     private final PurchaseIntentRecordRepository repository;
 

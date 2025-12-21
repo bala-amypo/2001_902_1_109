@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CreditCardServiceImpl implements CreditCardService {
+public class CreditCardServiceImplement implements CreditCardService {
 
     private final CreditCardRecordRepository repository;
 

@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RecommendationServiceImpl implements RecommendationEngineService {
+public class RecommendationServiceImplement implements RecommendationEngineService {
 
     private final PurchaseIntentRecordRepository intentRepository;
     private final CreditCardRecordRepository cardRepository;
     private final RewardRuleRepository ruleRepository;
     private final RecommendationRecordRepository recommendationRepository;
 
-    public RecommendationServiceImpl(
+    public RecommendationServiceImplement(
             PurchaseIntentRecordRepository intentRepository,
             CreditCardRecordRepository cardRepository,
             RewardRuleRepository ruleRepository,
