@@ -1,4 +1,7 @@
 package com.example.demo.Repository;
-public class UserProfileRepository{
-    
+
+import com.example.demo.Entity.UserProfile;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
 }

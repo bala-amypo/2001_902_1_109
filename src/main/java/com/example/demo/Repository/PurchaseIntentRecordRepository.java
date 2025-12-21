@@ -1,4 +1,12 @@
 package com.example.demo.Repository;
-public class PurchaseIntentRecordRepository{
-    
+
+import com.example.demo.Entity.PurchaseIntentRecord;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface PurchaseIntentRecordRepository
+        extends JpaRepository<PurchaseIntentRecord, Long> {
+
+    List<PurchaseIntentRecord> findByUserId(Long userId);
 }
