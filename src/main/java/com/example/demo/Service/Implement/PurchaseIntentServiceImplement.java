@@ -10,19 +10,10 @@ import java.util.List;
 @Service
 public class PurchaseIntentServiceImplement implements PurchaseIntentService {
 
-    private final PurchaseIntentRecordRepository repository;
+    private final PurchaseIntentRepository repository;
 
-    public PurchaseIntentServiceImpl(PurchaseIntentRecordRepository repository) {
+    
+    public PurchaseIntentServiceImplement(PurchaseIntentRepository repository) {
         this.repository = repository;
-    }
-
-    @Override
-    public PurchaseIntentRecord createIntent(PurchaseIntentRecord intent) {
-        return repository.save(intent);
-    }
-
-    @Override
-    public List<PurchaseIntentRecord> getIntentsByUser(Long userId) {
-        return repository.findByUserId(userId);
     }
 }

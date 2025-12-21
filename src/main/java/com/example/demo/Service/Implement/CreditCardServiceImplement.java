@@ -10,20 +10,11 @@ import java.util.List;
 @Service
 public class CreditCardServiceImplement implements CreditCardService {
 
-    private final CreditCardRecordRepository repository;
+    private final CreditCardRepository repository;
 
-    public CreditCardServiceImpl(CreditCardRecordRepository repository) {
+    
+    public CreditCardServiceImplement(CreditCardRepository repository) {
         this.repository = repository;
-    }
-
-    @Override
-    public CreditCardRecord addCard(CreditCardRecord card) {
-        return repository.save(card);
-    }
-
-    @Override
-    public List<CreditCardRecord> getCardsByUser(Long userId) {
-        return repository.findByUserId(userId);
     }
 }
 
