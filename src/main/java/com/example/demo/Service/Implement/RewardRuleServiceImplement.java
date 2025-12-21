@@ -12,7 +12,8 @@ public class RewardRuleServiceImplement implements RewardRuleService {
 
     private final RewardRuleRepository repository;
 
-    public RewardRuleServiceImpl(RewardRuleRepository repository) {
+    
+    public RewardRuleServiceImplement(RewardRuleRepository repository) {
         this.repository = repository;
     }
 
