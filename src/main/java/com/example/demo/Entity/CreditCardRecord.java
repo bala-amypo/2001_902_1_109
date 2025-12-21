@@ -1,5 +1,5 @@
 package com.example.demo.Entity;
-import jakrta.persistence.*;
+import jakarta.persistence.*;
 import java.time.*;
 @Entity
 public class CreditCardRecord{
