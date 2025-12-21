@@ -2,13 +2,13 @@ package com.example.demo.service.impl;
 
 import com.example.demo.entity.*;
 import com.example.demo.repository.*;
-import com.example.demo.service.RecommendationService;
+import com.example.demo.service.RecommendationEngineService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RecommendationServiceImpl implements RecommendationService {
+public class RecommendationServiceImpl implements RecommendationEngineService {
 
     private final PurchaseIntentRecordRepository intentRepository;
     private final CreditCardRecordRepository cardRepository;
