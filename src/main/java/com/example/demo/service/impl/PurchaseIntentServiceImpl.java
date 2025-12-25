@@ -1,22 +1,30 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.PurchaseIntentRecord;
+import com.example.demo.repository.PurchaseIntentRecordRepository;
 import com.example.demo.service.PurchaseIntentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PurchaseIntentServiceImpl implements PurchaseIntentService {
-
+    
+    @Autowired
+    private PurchaseIntentRecordRepository repository;
+    
     @Override
     public PurchaseIntentRecord createIntent(PurchaseIntentRecord intent) {
-        return intent; // dummy logic
+        return repository.save(intent);
     }
-
+    
     @Override
     public List<PurchaseIntentRecord> getIntentsByUser(Long userId) {
-        return new ArrayList<>();
+        return repository.findByUserId(userId);
+    }
+    
+    @Override
+    public List<PurchaseIntentRecord> getAllIntents() {
+        return repository.findAll();
     }
 }
