@@ -176,37 +176,12 @@ public class PurchaseIntentController {
 
 
 
-package com.example.demo.controller;
 
-import com.example.demo.entity.RecommendationRecord;
-import com.example.demo.service.RecommendationEngineService;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
-@RestController
-@RequestMapping("/api/recommendations")
-public class RecommendationController {
-    private final RecommendationEngineService recommendationEngineService;
 
-    public RecommendationController(RecommendationEngineService recommendationEngineService) {
-        this.recommendationEngineService = recommendationEngineService;
-    }
 
-    @PostMapping("/generate/{intentId}")
-    public RecommendationRecord generateRecommendation(@PathVariable Long intentId) {
-        return recommendationEngineService.generateRecommendation(intentId);
-    }
 
-    @GetMapping("/user/{userId}")
-    public List<RecommendationRecord> getRecommendationsByUser(@PathVariable Long userId) {
-        return recommendationEngineService.getRecommendationsByUser(userId);
-    }
 
-    @GetMapping
-    public List<RecommendationRecord> getAllRecommendations() {
-        return recommendationEngineService.getAllRecommendations();
-    }
-}
 
 
 
@@ -219,37 +194,12 @@ public class RecommendationController {
 
 
 
-package com.example.demo.controller;
 
-import com.example.demo.entity.RewardRule;
-import com.example.demo.service.RewardRuleService;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
-@RestController
-@RequestMapping("/api/rules")
-public class RewardRuleController {
-    private final RewardRuleService rewardRuleService;
 
-    public RewardRuleController(RewardRuleService rewardRuleService) {
-        this.rewardRuleService = rewardRuleService;
-    }
 
-    @PostMapping
-    public RewardRule createRule(@RequestBody RewardRule rule) {
-        return rewardRuleService.createRule(rule);
-    }
 
-    @GetMapping
-    public List<RewardRule> getAllRules() {
-        return rewardRuleService.getAllRules();
-    }
 
-    @GetMapping("/active")
-    public List<RewardRule> getActiveRules() {
-        return rewardRuleService.getActiveRules();
-    }
-}
 
 
 
@@ -257,67 +207,14 @@ public class RewardRuleController {
 
 
 
-package com.example.demo.controller;
 
-import com.example.demo.entity.UserProfile;
-import com.example.demo.service.UserProfileService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
-@RestController
-@RequestMapping("/api/users")
-@Tag(name = "User Profile", description = "User Profile management APIs")
-public class UserProfileController {
-    private final UserProfileService userProfileService;
 
-    public UserProfileController(UserProfileService userProfileService) {
-        this.userProfileService = userProfileService;
-    }
 
-    @PostMapping
-    @Operation(summary = "Create user")
-    public ResponseEntity<UserProfile> createUser(@RequestBody UserProfile userProfile) {
-        return ResponseEntity.ok(userProfileService.save(userProfile));
-    }
 
-    @GetMapping("/{id}")
-    @Operation(summary = "Get user")
-    public ResponseEntity<UserProfile> getUserById(@PathVariable Long id) {
-        return userProfileService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
 
-    @GetMapping
-    @Operation(summary = "List all users")
-    public ResponseEntity<List<UserProfile>> getAllUsers() {
-        return ResponseEntity.ok(userProfileService.findAll());
-    }
 
-    @PutMapping("/{id}/status")
-    @Operation(summary = "Activate/deactivate user")
-    public ResponseEntity<UserProfile> updateUserStatus(@PathVariable Long id, @RequestParam Boolean active) {
-        return userProfileService.findById(id)
-                .map(user -> {
-                    user.setActive(active);
-                    return ResponseEntity.ok(userProfileService.save(user));
-                })
-                .orElse(ResponseEntity.notFound().build());
-    }
 
-    @GetMapping("/lookup/{userid}")
-    @Operation(summary = "Lookup user")
-    public ResponseEntity<UserProfile> lookupUser(@PathVariable String userid) {
-        return userProfileService.findAll().stream()
-                .filter(user -> userid.equals(user.getUserId()))
-                .findFirst()
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-}
 
 
 
@@ -353,194 +250,10 @@ public class UserProfileController {
 
 
 
-package com.example.demo.dto;
 
-import java.time.LocalDateTime;
 
-public class ApiErrorResponse {
-    private String message;
-    private int status;
-    private LocalDateTime timestamp;
 
-    public ApiErrorResponse(String message, int status) {
-        this.message = message;
-        this.status = status;
-        this.timestamp = LocalDateTime.now();
-    }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-}
-
-
-
-
-
-
-
-package com.example.demo.dto;
-
-public class JwtResponse {
-    private String token;
-    private String type = "Bearer";
-    private Long userId;
-    private String email;
-
-    public JwtResponse(String token) {
-        this.token = token;
-    }
-
-    public JwtResponse(String token, Long userId, String email) {
-        this.token = token;
-        this.userId = userId;
-        this.email = email;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-}
-
-
-
-
-
-
-package com.example.demo.dto;
-
-public class LoginRequest {
-    private String username;
-    private String email;
-    private String password;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-}
-
-
-
-
-
-
-package com.example.demo.dto;
-
-public class RegisterRequest {
-    private String username;
-    private String password;
-    private String email;
-    private String fullName;
-    private String role;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-}
 
 
 
