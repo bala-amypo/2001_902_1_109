@@ -8,6 +8,9 @@ import java.util.List;
 
 @Repository
 public interface RewardRuleRepository extends JpaRepository<RewardRule, Long> {
+    @Query("SELECT r FROM RewardRule r WHERE r.active = true")
+    List<RewardRule> findActiveRules();
+    
     List<RewardRule> findByActiveTrue();
     
     @Query("SELECT r FROM RewardRule r WHERE r.cardId = ?1 AND r.category = ?2 AND r.active = true")

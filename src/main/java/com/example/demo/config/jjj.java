@@ -935,45 +935,6 @@ public interface PurchaseIntentRecordRepository extends JpaRepository<PurchaseIn
 
 
 
-package com.example.demo.repository;
-
-import com.example.demo.entity.RecommendationRecord;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.util.List;
-
-@Repository
-public interface RecommendationRecordRepository extends JpaRepository<RecommendationRecord, Long> {
-    List<RecommendationRecord> findByUserId(Long userId);
-}
-
-
-
-
-
-
-
-
-
-
-package com.example.demo.repository;
-
-import com.example.demo.entity.RewardRule;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-import java.util.List;
-
-@Repository
-public interface RewardRuleRepository extends JpaRepository<RewardRule, Long> {
-    @Query("SELECT r FROM RewardRule r WHERE r.active = true")
-    List<RewardRule> findActiveRules();
-    
-    List<RewardRule> findByActiveTrue();
-    
-    @Query("SELECT r FROM RewardRule r WHERE r.cardId = ?1 AND r.category = ?2 AND r.active = true")
-    List<RewardRule> findActiveRulesForCardCategory(Long cardId, String category);
-}
 
 
 
@@ -985,19 +946,19 @@ public interface RewardRuleRepository extends JpaRepository<RewardRule, Long> {
 
 
 
-package com.example.demo.repository;
 
-import com.example.demo.entity.UserProfile;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.util.Optional;
 
-@Repository
-public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
-    boolean existsByEmail(String email);
-    boolean existsByUserId(String userId);
-    Optional<UserProfile> findByEmail(String email);
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
