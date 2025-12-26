@@ -570,51 +570,8 @@ public class RegisterRequest {
 
 
 
-package com.example.demo.entity;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
-@Entity
-public class CreditCardRecord {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private Long userId;
-    private String cardName;
-    private String issuer;
-    private String status;
-    private Double annualFee;
-    private LocalDateTime createdAt;
-
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-    // Getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    
-    public Long getUserId() { return userId; }
-    public void setUserId(Long userId) { this.userId = userId; }
-    
-    public String getCardName() { return cardName; }
-    public void setCardName(String cardName) { this.cardName = cardName; }
-    
-    public String getIssuer() { return issuer; }
-    public void setIssuer(String issuer) { this.issuer = issuer; }
-    
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-    
-    public Double getAnnualFee() { return annualFee; }
-    public void setAnnualFee(Double annualFee) { this.annualFee = annualFee; }
-    
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-}
 
 
 
@@ -625,37 +582,7 @@ public class CreditCardRecord {
 
 
 
-package com.example.demo.entity;
 
-import jakarta.persistence.*;
-
-@Entity
-public class PurchaseIntentRecord {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private Long userId;
-    private Double amount;
-    private String category;
-    private String merchant;
-
-    // Getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    
-    public Long getUserId() { return userId; }
-    public void setUserId(Long userId) { this.userId = userId; }
-    
-    public Double getAmount() { return amount; }
-    public void setAmount(Double amount) { this.amount = amount; }
-    
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
-    
-    public String getMerchant() { return merchant; }
-    public void setMerchant(String merchant) { this.merchant = merchant; }
-}
 
 
 
@@ -665,79 +592,9 @@ public class PurchaseIntentRecord {
 
 
 
-package com.example.demo.entity;
 
-import jakarta.persistence.*;
 
-@Entity
-public class RecommendationRecord {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private Long userId;
-    private Long purchaseIntentId;
-    private Long recommendedCardId;
-    private Double expectedRewardValue;
-    private String calculationDetailsJson;
-
-    // Getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    
-    public Long getUserId() { return userId; }
-    public void setUserId(Long userId) { this.userId = userId; }
-    
-    public Long getPurchaseIntentId() { return purchaseIntentId; }
-    public void setPurchaseIntentId(Long purchaseIntentId) { this.purchaseIntentId = purchaseIntentId; }
-    
-    public Long getRecommendedCardId() { return recommendedCardId; }
-    public void setRecommendedCardId(Long recommendedCardId) { this.recommendedCardId = recommendedCardId; }
-    
-    public Double getExpectedRewardValue() { return expectedRewardValue; }
-    public void setExpectedRewardValue(Double expectedRewardValue) { this.expectedRewardValue = expectedRewardValue; }
-    
-    public String getCalculationDetailsJson() { return calculationDetailsJson; }
-    public void setCalculationDetailsJson(String calculationDetailsJson) { this.calculationDetailsJson = calculationDetailsJson; }
-}
-
-
-
-
-
-
-
-package com.example.demo.entity;
-
-import jakarta.persistence.*;
-
-@Entity
-public class RewardRule {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private Long cardId;
-    private String category;
-    private Double multiplier;
-    private Boolean active;
 
-    // Getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    
-    public Long getCardId() { return cardId; }
-    public void setCardId(Long cardId) { this.cardId = cardId; }
-    
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
-    
-    public Double getMultiplier() { return multiplier; }
-    public void setMultiplier(Double multiplier) { this.multiplier = multiplier; }
-    
-    public Boolean getActive() { return active; }
-    public void setActive(Boolean active) { this.active = active; }
-}
 
 
 
@@ -748,62 +605,10 @@ public class RewardRule {
 
 
 
-package com.example.demo.entity;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
-@Entity
-public class UserProfile {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private String userId;
-    private String username;
-    private String email;
-    private String password;
-    private String fullName;
-    private String role;
-    private Boolean active;
-    private LocalDateTime createdAt;
 
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-        if (this.role == null) {
-            this.role = "USER";
-        }
-    }
 
-    // Getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
-    
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
-    
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
-    
-    public String getFullName() { return fullName; }
-    public void setFullName(String fullName) { this.fullName = fullName; }
-    
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
-    
-    public Boolean getActive() { return active; }
-    public void setActive(Boolean active) { this.active = active; }
-    
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-}
 
 
 
@@ -818,56 +623,24 @@ public class UserProfile {
 
 
 
-package com.example.demo.exception;
 
-public class BadRequestException extends RuntimeException {
-    public BadRequestException(String message) {
-        super(message);
-    }
-}
 
 
 
 
 
-package com.example.demo.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
-public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException ex) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-    }
 
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<String> handleBadRequestException(BadRequestException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-    }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGenericException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error");
-    }
-}
 
 
 
 
 
 
-package com.example.demo.exception;
 
-public class ResourceNotFoundException extends RuntimeException {
-    public ResourceNotFoundException(String message) {
-        super(message);
-    }
-}
 
 
 
@@ -893,40 +666,9 @@ public class ResourceNotFoundException extends RuntimeException {
 
 
 
-package com.example.demo.repository;
 
-import com.example.demo.entity.CreditCardRecord;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-import java.util.List;
 
-@Repository
-public interface CreditCardRecordRepository extends JpaRepository<CreditCardRecord, Long> {
-    List<CreditCardRecord> findByUserId(Long userId);
-    
-    @Query("SELECT c FROM CreditCardRecord c WHERE c.userId = ?1 AND c.status = 'ACTIVE'")
-    List<CreditCardRecord> findActiveCardsByUser(Long userId);
-    
-    @Query("SELECT c FROM CreditCardRecord c WHERE c.status = 'ACTIVE'")
-    List<CreditCardRecord> findActiveCards();
-}
 
-
-
-
-
-package com.example.demo.repository;
-
-import com.example.demo.entity.PurchaseIntentRecord;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.util.List;
-
-@Repository
-public interface PurchaseIntentRecordRepository extends JpaRepository<PurchaseIntentRecord, Long> {
-    List<PurchaseIntentRecord> findByUserId(Long userId);
-}
 
 
 

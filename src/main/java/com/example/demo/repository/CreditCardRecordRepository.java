@@ -12,4 +12,7 @@ public interface CreditCardRecordRepository extends JpaRepository<CreditCardReco
     
     @Query("SELECT c FROM CreditCardRecord c WHERE c.userId = ?1 AND c.status = 'ACTIVE'")
     List<CreditCardRecord> findActiveCardsByUser(Long userId);
+    
+    @Query("SELECT c FROM CreditCardRecord c WHERE c.status = 'ACTIVE'")
+    List<CreditCardRecord> findActiveCards();
 }
